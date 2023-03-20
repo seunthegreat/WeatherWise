@@ -8,4 +8,15 @@ export interface Constant {
     name: string;
     lngLat: number[];
   }
+};
+
+export interface Styling {
+  Text: {
+    normal: string;
+    small: string;
+    smallest: string;
+    heading: string;
+    subHeading: string;
+    body: string;
+  }
 }

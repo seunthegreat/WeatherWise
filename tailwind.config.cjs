@@ -11,8 +11,7 @@ module.exports = {
         secondary: "#F4DB7D",
         accent: "#9DAAF2",
         highlight: "#FF6A3D",
-        urgencyTip: "rgba(255, 152, 0, 0.1)",
-        urgencyTipB: "#FF9800",
+        hover: "rgba(26, 34, 56, 0.1)",
       },
       fontFamily: {
         poppins: ["Poppins", "sans-serif"],
