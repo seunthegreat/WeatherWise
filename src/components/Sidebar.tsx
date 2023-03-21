@@ -1,22 +1,16 @@
 import React, { useState } from 'react'
 import { text } from '../style'
-import { CityCard } from '.';
+import { CityCard, Search } from '.';
 import { AppConstant } from '../constants';
-import { ConstantProps } from '../types';
+import { ComponentProps } from '../types';
 
 const {popularCities} = AppConstant
 
-
-type Props = {
-  currentSelection: ConstantProps['City'];
-  onSelectCity: (item: ConstantProps['City']) => void;
-}
-
-const Sidebar: React.FC<Props> = ({onSelectCity, currentSelection}): JSX.Element => {
+const Sidebar: React.FC<ComponentProps['Sidebar']> = ({onSelectCity, currentSelection}): JSX.Element => {
   
   return (
     <div className='h-screen md:overflow-hidden shadow-2xl overflow-auto md:hover:overflow-auto p-3 z-10 w-96 bg-white'>
-      <div className='mt-2 h-20 border-b-[1px] flex flex-row justify-between items-start'>
+      <div className='mt-2 h-16 border-b-[1px] flex flex-row justify-between items-start'>
         <p className={`${text.subHeading}`}>Weather Wise</p>
 
         <button className=''>
@@ -25,7 +19,7 @@ const Sidebar: React.FC<Props> = ({onSelectCity, currentSelection}): JSX.Element
       </div>
 
       <div className='py-2'>
-        <div className='rounded-[5px] bg-gray-200 w-full h-10'></div>
+         <Search onClickSearchResult={onSelectCity} />
       </div>
 
       <div className='my-2 flex flex-col h-[100%] w-full'>
@@ -37,7 +31,7 @@ const Sidebar: React.FC<Props> = ({onSelectCity, currentSelection}): JSX.Element
               key={index} 
               info={item}
               currentCity={currentSelection} 
-              onSelectCity={onSelectCity}
+              onSelectCity={(value) => console.log(value)}
             />
           ))} 
         </div>

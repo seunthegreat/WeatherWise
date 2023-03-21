@@ -5,11 +5,12 @@ import { ConstantProps } from './types';
 
 const { popularCities } = AppConstant;  
 const App: React.FC = () => {
-  const [selectedCity, setSelectedCity] = useState<ConstantProps['City']>(popularCities[0])    
+  const [selectedCity, setSelectedCity] = useState<ConstantProps['City'] | null>(popularCities[0])    
 
-  const handleSelectCity = (item: ConstantProps['City']) => {
+  const handleSelectCity = (item: ConstantProps['City'] | null ) => {
     setSelectedCity(item);
   }
+  
   return (
     <div className='relate bg-gray-100 flex'>
       <div className='fixed z-10 md:static navbar'>

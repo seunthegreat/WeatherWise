@@ -27,16 +27,19 @@ const MapView: React.FC<ComponentProps['Map']> = ({currentSelection}) : JSX.Elem
 
   useEffect(() => {
     //-- fetch weather data for the selected marker --//
+   if (currentSelection) {
     fetchWeatherData(currentSelection.lngLat).then(data => {
       console.log(data)
       setWeatherData(data);
     });
+   }
   }, [currentSelection])
 
   //--initializes map when component mounts--//
   useEffect(() => {
-    //-- create a new Mapbox map instance and pass in the necessary options --//
-    const map = new Map({
+   if (currentSelection) {
+     //-- create a new Mapbox map instance and pass in the necessary options --//
+     const map = new Map({
       container: mapContainerRef.current!,
       style: 'mapbox://styles/mapbox/light-v10', //--> specifies the style for the map
       center: currentSelection.lngLat, //--> 
@@ -64,7 +67,6 @@ const MapView: React.FC<ComponentProps['Map']> = ({currentSelection}) : JSX.Elem
 
       //-- Display popup when marker is clicked --//
     
-
       map.on('click', (e) => {
         new mapboxgl.Popup()
           .setLngLat(lngLat)
@@ -100,6 +102,7 @@ const MapView: React.FC<ComponentProps['Map']> = ({currentSelection}) : JSX.Elem
       });
       map.remove();
     };
+   }
   }, [currentSelection]); //--> updates each time value of currentSelection changes i.e it is a dependency
 
   //-- renders an empty div element that will contain the map --//

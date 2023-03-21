@@ -1,8 +1,20 @@
 export interface ComponentProps {
-   Map: {
-    currentSelection: ConstantProps['City'];
+  Sidebar: {
+    currentSelection: ConstantProps['City'] | null;
+    onSelectCity: (item: ConstantProps['City'] | null) => void
   }
-}
+   Map: {
+    currentSelection: ConstantProps['City'] | null;
+  }
+  Search: {
+    onClickSearchResult: (item: ConstantProps['City'] | null) => void;
+  }
+  CityCard: {
+    info: ConstantProps['City'],
+    currentCity: ConstantProps['City'] | null,
+    onSelectCity: (item: ConstantProps['City']) => void;
+  }
+};
 
 export interface ConstantProps {
   City: {
