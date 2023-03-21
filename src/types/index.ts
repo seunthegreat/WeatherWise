@@ -1,12 +1,15 @@
-export interface Component {
-  
+export interface ComponentProps {
+   Map: {
+    currentSelection: ConstantProps['City'];
+  }
 }
 
-export interface Constant {
+export interface ConstantProps {
   City: {
     id: number;
-    name: string;
-    lngLat: number[];
+    city: string;
+    country: string;
+    lngLat: [number, number];
   }
 };
 

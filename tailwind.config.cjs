@@ -11,7 +11,7 @@ module.exports = {
         secondary: "#F4DB7D",
         accent: "#9DAAF2",
         highlight: "#FF6A3D",
-        hover: "rgba(26, 34, 56, 0.1)",
+        hover: "rgba(26, 34, 56, 0.02)",
       },
       fontFamily: {
         poppins: ["Poppins", "sans-serif"],
