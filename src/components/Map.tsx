@@ -1,3 +1,4 @@
+//-- Importing the necessary components, types and constants --//
 import React, { useRef, useEffect, useState } from 'react';
 import mapboxgl, { Map, NavigationControl, Marker } from 'mapbox-gl';
 import { AppConstant } from '../constants';

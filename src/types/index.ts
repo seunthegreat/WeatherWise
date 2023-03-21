@@ -1,3 +1,11 @@
+/**
+ * Interface for component props used in the app. Properties include Navbar, Sidebar, Map, Search, and CityCard. 
+ * Navbar.onSelectCity and Sidebar.onSelectCity are functions that accept arguments of type ConstantProps['City'] 
+ * or null, which are called when a city is selected. Search.onClickSearchResult is a function that accepts an argument 
+ * of type ConstantProps['City'] or null, which is called when a search result is clicked. CityCard.info is an object 
+ * of type ConstantProps['City'] containing information about the city, and CityCard.onSelectCity is a function that 
+ * accepts an argument of type ConstantProps['City'], which is called when a city is selected.
+ */
 export interface ComponentProps {
   Navbar: {
     onSelectCity: (item: ConstantProps['City'] | null) => void;

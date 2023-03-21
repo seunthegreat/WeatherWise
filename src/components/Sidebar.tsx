@@ -1,3 +1,4 @@
+//-- Importing the necessary components, types and constants --//
 import React, { useState } from 'react'
 import { text } from '../style'
 import { CityCard, Search } from '.';

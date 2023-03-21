@@ -1,6 +1,12 @@
+/**
+ * This file contains a list of popular cities with their corresponding id, name, country and longitude-latitude values.
+ * It also exports an object with some constant values, such as the list of popular cities, the Mapbox public key, 
+ * the OpenWeatherMap API key, and the URL of the OpenWeatherMap API endpoint.
+*/
+
 import { ConstantProps } from "../types"
 
-export const cities: ConstantProps['City'][] = [
+const cities: ConstantProps['City'][] = [
   {
     id: 1,
     city: "Tokyo",
