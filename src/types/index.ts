@@ -1,8 +1,11 @@
 export interface ComponentProps {
+  Navbar: {
+    onSelectCity: (item: ConstantProps['City'] | null) => void;
+  }
   Sidebar: {
     screenSize: number;
     currentSelection: ConstantProps['City'] | null;
-    onSelectCity: (item: ConstantProps['City'] | null) => void
+    onSelectCity: (item: ConstantProps['City'] | null) => void;
   }
    Map: {
     currentSelection: ConstantProps['City'] | null;
