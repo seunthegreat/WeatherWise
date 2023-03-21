@@ -6,11 +6,11 @@ import { ComponentProps } from '../types';
 
 const {popularCities} = AppConstant
 
-const Sidebar: React.FC<ComponentProps['Sidebar']> = ({onSelectCity, currentSelection}): JSX.Element => {
+const Sidebar: React.FC<ComponentProps['Sidebar']> = ({onSelectCity, currentSelection, screenSize}): JSX.Element => {
   
   return (
-    <div className='h-screen md:overflow-hidden shadow-2xl overflow-auto md:hover:overflow-auto p-3 z-10 w-96 bg-white'>
-      <div className='mt-2 h-16 border-b-[1px] flex flex-row justify-between items-start'>
+    <div className={`${screenSize > 800 ? 'w-96' : 'w-72'} h-screen md:overflow-hidden shadow-2xl overflow-auto md:hover:overflow-auto p-3 z-10 bg-white`}>
+      <div className='mt-2 h-14 border-b-[1px] flex flex-row justify-between items-start'>
         <p className={`${text.subHeading}`}>Weather Wise</p>
 
         <button className=''>
@@ -31,7 +31,7 @@ const Sidebar: React.FC<ComponentProps['Sidebar']> = ({onSelectCity, currentSele
               key={index} 
               info={item}
               currentCity={currentSelection} 
-              onSelectCity={(value) => console.log(value)}
+              onSelectCity={onSelectCity}
             />
           ))} 
         </div>

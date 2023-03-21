@@ -5,16 +5,26 @@ import { ConstantProps } from './types';
 
 const { popularCities } = AppConstant;  
 const App: React.FC = () => {
-  const [selectedCity, setSelectedCity] = useState<ConstantProps['City'] | null>(popularCities[0])    
+  const [selectedCity, setSelectedCity] = useState<ConstantProps['City'] | null>(popularCities[0]);
+  const [screenSize, setScreenSize] = useState<number>(0);
+
+  useEffect(() => {
+    const handleResize = () => setScreenSize(window.innerWidth);
+    window.addEventListener('resize', handleResize);
+    handleResize();
+
+    return () => window.removeEventListener('resize', handleResize);
+  }, [screenSize]);
 
   const handleSelectCity = (item: ConstantProps['City'] | null ) => {
     setSelectedCity(item);
   }
-  
+
   return (
     <div className='relate bg-gray-100 flex'>
       <div className='fixed z-10 md:static navbar'>
-        <Sidebar 
+        <Sidebar
+         screenSize={screenSize}
          currentSelection={selectedCity}
          onSelectCity={handleSelectCity}/>
       </div>

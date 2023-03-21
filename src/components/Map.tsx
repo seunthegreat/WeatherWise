@@ -24,12 +24,12 @@ const MapView: React.FC<ComponentProps['Map']> = ({currentSelection}) : JSX.Elem
   const mapContainerRef = useRef<HTMLDivElement>(null);
   
   const [weatherData, setWeatherData] = useState<any>(null);
+  
 
   useEffect(() => {
     //-- fetch weather data for the selected marker --//
    if (currentSelection) {
     fetchWeatherData(currentSelection.lngLat).then(data => {
-      console.log(data)
       setWeatherData(data);
     });
    }
@@ -86,7 +86,7 @@ const MapView: React.FC<ComponentProps['Map']> = ({currentSelection}) : JSX.Elem
                 <p>Temperature: ${weatherData.list[8].main.temp} &#8451;</p>
                 <p>Description: ${weatherData.list[8].weather[0].description}</p>
                 <p>Humidity: ${weatherData.list[8].main.humidity}%</p>
-                <p>Date: ${weatherData.list[0].dt_txt}</p>
+                <p>Date: ${weatherData.list[8].dt_txt}</p>
                 
               </div>
             </div>

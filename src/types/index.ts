@@ -1,5 +1,6 @@
 export interface ComponentProps {
   Sidebar: {
+    screenSize: number;
     currentSelection: ConstantProps['City'] | null;
     onSelectCity: (item: ConstantProps['City'] | null) => void
   }
