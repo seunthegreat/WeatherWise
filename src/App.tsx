@@ -11,7 +11,7 @@ const { popularCities } = AppConstant;
 const App: React.FC = ():JSX.Element => {
   //-- Defining the state variables selectedCity and screenSize using the useState hook --//
   const [selectedCity, setSelectedCity] = useState<ConstantProps['City'] | null>(popularCities[0]);
-  const [screenSize, setScreenSize] = useState<number>(0);
+  const [screenSize, setScreenSize] = useState<number>(window.innerWidth);
 
   //-- Using the useEffect hook to add an event listener for window resize events --//
   useEffect(() => {
