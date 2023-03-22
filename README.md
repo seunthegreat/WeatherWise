@@ -32,8 +32,8 @@ npm run dev
 
 The following additional dependencies were used in the creation of WeatherWise:
 
-- mapbox-gl : [website](https://www.npmjs.com/package/mapbox-gl)
-- react-select : [website](https://react-select.com/home)
+- [mapbox-gl](https://www.npmjs.com/package/mapbox-gl)
+- [react-select](https://react-select.com/home)
 
 *Ensure to check the package.json for reference.*
 
