@@ -34,6 +34,7 @@ export interface ConstantProps {
     city: string;
     country: string;
     lngLat: [number, number];
+    imgUrl?: string;
   }
 };
 
