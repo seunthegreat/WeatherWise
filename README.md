@@ -46,3 +46,5 @@ I welcome contributions to WeatherWise! Please follow the steps below to contrib
 - Make your changes and commit them: git commit -am 'Add new feature'
 - Push to your fork: git push origin feature-name
 - Create a pull request to the main branch of the original repository. 
+
+## Thank you!
