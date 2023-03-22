@@ -25,20 +25,21 @@ const MapView: React.FC<ComponentProps['Map']> = ({currentSelection}) : JSX.Elem
   const mapContainerRef = useRef<HTMLDivElement>(null);
   
   const [weatherData, setWeatherData] = useState<any>(null);
+  const [loading, setLoading] = useState<boolean>(true);
   
-
   useEffect(() => {
-    //-- fetch weather data for the selected marker --//
-   if (currentSelection) {
-    fetchWeatherData(currentSelection.lngLat).then(data => {
-      setWeatherData(data);
-    });
-   }
+    if (currentSelection) {
+      setLoading(true);
+      fetchWeatherData(currentSelection.lngLat).then(data => {
+        setWeatherData(data);
+        setLoading(false);
+      });
+    }
   }, [currentSelection])
 
   //--initializes map when component mounts--//
   useEffect(() => {
-   if (currentSelection) {
+    if (currentSelection && !loading) {
      //-- create a new Mapbox map instance and pass in the necessary options --//
      const map = new Map({
       container: mapContainerRef.current!,
@@ -67,7 +68,6 @@ const MapView: React.FC<ComponentProps['Map']> = ({currentSelection}) : JSX.Elem
       markers.push(marker);
 
       //-- Display popup when marker is clicked --//
-    
       map.on('click', (e) => {
         new mapboxgl.Popup()
           .setLngLat(lngLat)
@@ -104,7 +104,7 @@ const MapView: React.FC<ComponentProps['Map']> = ({currentSelection}) : JSX.Elem
       map.remove();
     };
    }
-  }, [currentSelection]); //--> updates each time value of currentSelection changes i.e it is a dependency
+  }, [currentSelection, loading]); //--> updates each time value of currentSelection changes i.e it is a dependency
 
   //-- renders an empty div element that will contain the map --//
   return <div className="flex flex-col min-h-screen" ref={mapContainerRef} />;
